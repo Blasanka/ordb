@@ -117,7 +117,7 @@ You will notice that after we insert first object we can add values for `admrdep
 *Let's see how to do this:*
 
 ```
-INSERT INTO ordept VALUES (dept_t("A00", "SPIFFY COMPUTER SERVICE DIV.", NULL, NULL))
+INSERT INTO ordept VALUES (dept_t('A00', 'SPIFFY COMPUTER SERVICE DIV.', NULL, NULL))
 /
 ```
 
@@ -125,16 +125,16 @@ Now, we can insert value for `admrdept` because of we have inserted first row/ob
 and that's the one we have to refer for the second row according to provided table.
 
 ```
-INSERT INTO ordept VALUES (dept_t("B01", "PLANNING", NULL, (SELECT ref(d) FROM ordept d WHERE d.deptno = 'A00')))
+INSERT INTO ordept VALUES (dept_t('B01', 'PLANNING', NULL, (SELECT ref(d) FROM ordept d WHERE d.deptno = 'A00')))
 /
 ```
 
 ```
-INSERT INTO ordept VALUES (dept_t("C01", "INFORMATION CENTRE", NULL, (SELECT ref(d) FROM ordept d WHERE d.deptno = 'A00')))
+INSERT INTO ordept VALUES (dept_t('C01', 'INFORMATION CENTRE', NULL, (SELECT ref(d) FROM ordept d WHERE d.deptno = 'A00')))
 /
 ```
 
 ```
-INSERT INTO ordept VALUES (dept_t("D01", "DEVELOPMENT CENTRE", NULL, (SELECT ref(d) FROM ordept d WHERE d.deptno = 'C01')))
+INSERT INTO ordept VALUES (dept_t('D01', 'DEVELOPMENT CENTRE', NULL, (SELECT ref(d) FROM ordept d WHERE d.deptno = 'C01')))
 /
 ```
